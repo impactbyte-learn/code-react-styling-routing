@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-const AppStyled = styled.div`
+import Navigation from '../Navigation'
+import PageHome from '../PageHome'
+import PageAbout from '../PageAbout'
+import PageNotFound from '../PageNotFound'
+
+const Header = styled.div`
   color: ${({ color }) => color && color};
   background-color: ${({ bc }) => bc && bc};
   margin: 0;
@@ -12,9 +18,19 @@ const AppStyled = styled.div`
 class App extends Component {
   render() {
     return (
-      <AppStyled color="white" bc="black">
-        Code React Styling & Routing
-      </AppStyled>
+      <Router>
+        <div>
+          <Header color="white" bc="black">
+            Code React Styling & Routing
+          </Header>
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={PageHome} />
+            <Route path="/about" component={PageAbout} />
+            <Route component={PageNotFound} />
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
