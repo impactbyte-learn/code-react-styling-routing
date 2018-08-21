@@ -8,26 +8,32 @@ const Menu = styled.ul`
 `
 
 const MenuList = styled.li`
-  margin-right: 10px;
+  margin-right: 20px;
   display: inline;
+`
+
+const MenuLink = styled(Link)`
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
 `
 
 const Navigation = () => (
   <Menu>
     <MenuList>
-      <Link to="/">Home</Link>
+      <MenuLink to="/">Home</MenuLink>
     </MenuList>
     <MenuList>
-      <Link to="/about">About</Link>
+      <MenuLink to="/about">About</MenuLink>
     </MenuList>
     <MenuList>
-      <Link to="/users">Users</Link>
+      <MenuLink to="/users">Users</MenuLink>
     </MenuList>
     <MenuList>
-      <Link to="/upload">Upload</Link>
+      <MenuLink to="/upload">Upload</MenuLink>
     </MenuList>
     <MenuList>
-      <Link to="/random">NotFound</Link>
+      <MenuLink to="/random">NotFound</MenuLink>
     </MenuList>
   </Menu>
 )
