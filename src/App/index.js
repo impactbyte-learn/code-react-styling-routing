@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navigation from '../Navigation'
 import PageHome from '../PageHome'
 import PageAbout from '../PageAbout'
+import PageProfile from '../PageProfile'
 import PageNotFound from '../PageNotFound'
 
 const Header = styled.div`
@@ -27,6 +28,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={PageHome} />
             <Route path="/about" component={PageAbout} />
+            <Route path="/profile/:username" component={PageProfile} />
+            <Route path="/profile" component={PageProfile} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

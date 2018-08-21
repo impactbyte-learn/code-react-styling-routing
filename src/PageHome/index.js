@@ -1,18 +1,37 @@
 import React from 'react'
 
-const handleSubmit = event => {
-  event.preventDefault()
-  console.log('EVENT SUBMIT')
-}
+class PageHome extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-const PageHome = () => (
-  <div>
-    <form onSubmit={handleSubmit}>
-      <h3>Home Form</h3>
-      <input type="text" />
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-)
+  handleChange(event) {
+    this.setState({
+      username: event.target.value
+    })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+    this.props.history.push(`/profile/${this.state.username}`)
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <h3>Home Form</h3>
+          <input name="username" type="text" onChange={this.handleChange} />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    )
+  }
+}
 
 export default PageHome
