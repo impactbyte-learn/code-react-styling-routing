@@ -16,7 +16,7 @@ const Page = styled.div`
   font-family: sans-serif;
 `
 
-const Header = styled.div`
+const Header = styled.h1`
   color: ${({ color }) => color && color};
   background-color: ${({ bc }) => bc && bc};
 `
