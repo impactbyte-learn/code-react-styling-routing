@@ -34,7 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={PageHome} />
             <Route path="/about" component={PageAbout} />
-            <Route path="/profile/:username" component={PageProfile} />
+            <Route path="/profile/:id" component={PageProfile} />
             <Route path="/profile" component={PageProfile} />
             <Route path="/users" component={PageUsers} />
             <Route component={PageNotFound} />

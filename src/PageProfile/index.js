@@ -1,16 +1,45 @@
 import React from 'react'
+import axios from 'axios'
 
-const PageProfile = props => {
-  const username = props.match.params.username
-  return (
-    <div>
-      {username ? (
-        <span>Profile of {username}</span>
-      ) : (
-        <span>Unknown username</span>
-      )}
-    </div>
-  )
+const API_URL = process.env.REACT_APP_API_URL
+
+const request = axios.create({
+  baseURL: API_URL,
+  timeout: 5000
+})
+
+class PageProfile extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      user: null,
+      error: null
+    }
+
+    request
+      .get(`/users/${props.match.params.id}`)
+      .then(response => {
+        this.setState({ user: response.data.user })
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.user && this.state.user.username ? (
+          <span>
+            Profile of {this.state.user.username} ({this.state.user.email})
+          </span>
+        ) : (
+          <span>Loading user...</span>
+        )}
+      </div>
+    )
+  }
 }
 
 export default PageProfile

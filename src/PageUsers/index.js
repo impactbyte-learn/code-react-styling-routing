@@ -18,15 +18,12 @@ class PageUsers extends React.Component {
       error: null
     }
 
-    console.log(API_URL)
-
     request
       .get('/users')
       .then(response => {
         this.setState({ users: response.data.users })
       })
       .catch(error => {
-        console.log(error)
         this.setState({ error })
       })
   }
