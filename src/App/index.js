@@ -27,7 +27,7 @@ class App extends Component {
       <Router>
         <Page>
           <Header color="#fff" bc="#000">
-            Code React Styling & Routing
+            Code React Styling + Routing + Fetching
           </Header>
 
           <Navigation />
