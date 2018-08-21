@@ -1,4 +1,10 @@
-# Code React Styling Routing
+# Code React Styling + Routing + Fetching
+
+## Stack
+
+- Styling with [`styled-components`](https://www.styled-components.com)
+- Routing with [`react-router-dom`](https://reacttraining.com/react-router)
+- Fetching with [`axios`](https://www.npmjs.org/package/axios)
 
 ## Getting Started
 
