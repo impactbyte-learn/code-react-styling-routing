@@ -7,6 +7,7 @@ import PageHome from '../PageHome'
 import PageAbout from '../PageAbout'
 import PageProfile from '../PageProfile'
 import PageUsers from '../PageUsers'
+import PageUpload from '../PageUpload'
 import PageNotFound from '../PageNotFound'
 
 const Page = styled.div`
@@ -37,6 +38,7 @@ class App extends Component {
             <Route path="/profile/:id" component={PageProfile} />
             <Route path="/profile" component={PageProfile} />
             <Route path="/users" component={PageUsers} />
+            <Route path="/upload" component={PageUpload} />
             <Route component={PageNotFound} />
           </Switch>
         </Page>
