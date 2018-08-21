@@ -2,12 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-const API_URL = process.env.REACT_APP_API_URL
-
-const request = axios.create({
-  baseURL: API_URL,
-  timeout: 5000
-})
+import { request } from '../helpers'
 
 class PageUsers extends React.Component {
   constructor(props) {
@@ -18,7 +13,15 @@ class PageUsers extends React.Component {
       error: null
     }
 
-    request
+    this.getUsers = this.getUsers.bind(this)
+  }
+
+  componentDidMount() {
+    this.getUsers()
+  }
+
+  getUsers() {
+    request()
       .get('/users')
       .then(response => {
         this.setState({ users: response.data.users })
@@ -35,14 +38,17 @@ class PageUsers extends React.Component {
       <div>
         <h3>Users</h3>
         <ul>
-          {users &&
+          {users.length ? (
             users.map(user => {
               return (
                 <li key={user.id}>
                   <Link to={`/profile/${user.id}`}>{user.username}</Link>
                 </li>
               )
-            })}
+            })
+          ) : (
+            <span>Loading users...</span>
+          )}
         </ul>
       </div>
     )

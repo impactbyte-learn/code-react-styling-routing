@@ -1,12 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 
-const API_URL = process.env.REACT_APP_API_URL
-
-const request = axios.create({
-  baseURL: API_URL,
-  timeout: 5000
-})
+import { request } from '../helpers'
 
 class PageProfile extends React.Component {
   constructor(props) {
@@ -17,7 +11,7 @@ class PageProfile extends React.Component {
       error: null
     }
 
-    request
+    request()
       .get(`/users/${props.match.params.id}`)
       .then(response => {
         this.setState({ user: response.data.user })
