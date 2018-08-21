@@ -1,5 +1,18 @@
 import React from 'react'
 
-const Home = () => <div>HOME CONTENT</div>
+const handleSubmit = event => {
+  event.preventDefault()
+  console.log('EVENT SUBMIT')
+}
 
-export default Home
+const PageHome = () => (
+  <div>
+    <form onSubmit={handleSubmit}>
+      <h3>Home Form</h3>
+      <input type="text" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+)
+
+export default PageHome
