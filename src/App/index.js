@@ -6,6 +6,7 @@ import Navigation from '../Navigation'
 import PageHome from '../PageHome'
 import PageAbout from '../PageAbout'
 import PageProfile from '../PageProfile'
+import PageUsers from '../PageUsers'
 import PageNotFound from '../PageNotFound'
 
 const Page = styled.div`
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path="/about" component={PageAbout} />
             <Route path="/profile/:username" component={PageProfile} />
             <Route path="/profile" component={PageProfile} />
+            <Route path="/users" component={PageUsers} />
             <Route component={PageNotFound} />
           </Switch>
         </Page>
