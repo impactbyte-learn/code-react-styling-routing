@@ -1,2 +1,6 @@
-# code-react-styling-routing
-Code React Styling Routing
+# Code React Styling Routing
+
+```sh
+yarn
+yarn start
+```
