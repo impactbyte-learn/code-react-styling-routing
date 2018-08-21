@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <Router>
         <Page>
-          <Header color="white" bc="black">
+          <Header color="#fff" bc="#000">
             Code React Styling & Routing
           </Header>
 
